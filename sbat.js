@@ -1,32 +1,27 @@
-// JSDoc?
-function getTabIds(arrayOfObjects) {
-    var idArray = [];
-    var originalLength = arrayOfObjects.length;
-    for (var i = 0; i < originalLength; i++) {
-        idArray.push(arrayOfObjects[i].id);
-    }
-    return idArray;
+/*
+ * Take an array of objects and reduces them to an array of the corresponding
+ * "id" values.
+ */
+function getTabIds(arrayOfTabs) {
+    return arrayOfTabs.map(function(idObj) {
+        return idObj.id;
+    });
 }
 
-function reverseArray(someArray) {
-    var reversedArray = [];
-    var originalLength = someArray.length;
-    for (var j = 0; j < originalLength; j++) {
-        reversedArray.push(someArray.pop());
-    }
-    return reversedArray;
-}
-
-chrome.browserAction.onClicked.addListener(function(tab) {
+/*
+ * Adds an event listener to the Chrome extension icon in the browser. Calls
+ * asynchronous tabs.query() which returns an array of Tab objects in the
+ * current active window. Takes the array, maps and reverses tab Ids and
+ * finally moves them.
+ */
+chrome.browserAction.onClicked.addListener(function() {
     chrome.tabs.query({
-        // consider pinned?
         "currentWindow": true
     }, function(tabs) {
-        var reversedTabs = reverseArray(tabs);
+        var reversedTabs = tabs.reverse();
         var tabIds = getTabIds(reversedTabs);
         chrome.tabs.move(tabIds, {
             "index": -1
         });
     });
-    console.log("I am alive");
 });
