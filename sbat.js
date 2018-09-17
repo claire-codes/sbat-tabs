@@ -3,8 +3,8 @@
  * "id" values.
  */
 function getTabIds(arrayOfTabs) {
-    return arrayOfTabs.map(function(idObj) {
-        return idObj.id;
+    return arrayOfTabs.map(function(tab) {
+        return tab.id;
     });
 }
 
@@ -15,13 +15,16 @@ function getTabIds(arrayOfTabs) {
  * finally moves them.
  */
 chrome.browserAction.onClicked.addListener(function() {
-    chrome.tabs.query({
-        "currentWindow": true
-    }, function(tabs) {
-        var reversedTabs = tabs.reverse();
-        var tabIds = getTabIds(reversedTabs);
-        chrome.tabs.move(tabIds, {
-            "index": -1
-        });
-    });
+    chrome.tabs.query(
+        {
+            currentWindow: true,
+        },
+        function(tabs) {
+            var reversedTabs = tabs.reverse();
+            var tabIds = getTabIds(reversedTabs);
+            chrome.tabs.move(tabIds, {
+                index: -1,
+            });
+        }
+    );
 });

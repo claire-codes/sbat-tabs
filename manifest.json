@@ -1,18 +1,13 @@
 {
-    "manifest_version": 2,
-
     "name": "Sbat tabs",
     "description": "Reverse the order of all the tabs in your current window",
     "version": "1.0",
-
+    "manifest_version": 2,
     "browser_action": {
         "default_icon": "double-arrow.png",
-        "default_title": "Sbat us!"
+        "default_title": "Reverse tab order"
     },
-    "permissions": [
-        "tabs",
-        "windows"
-    ],
+    "permissions": ["tabs", "windows"],
     "background": {
         "scripts": ["sbat.js"],
         "persistent": false
