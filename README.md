@@ -1,16 +1,21 @@
-# Sbat :left_right_arrow:
+# Sbat tabs
 
-Because sometimes you just want to reverse the order of your current tabs in Chrome.
+Because sometimes you just want to reverse the order of your tabs.
 
-Works on your currently active window and only reverses normal tabs - leaves pinned ones alone.
+Chrome extension to reverse the layout of the tabs in your currently active window. Only reverses normal tabs, ignoring pinned tabs.
 
-![Gif demo](sbat4.gif "Gif demo")
+![Gif demo](sbat4.gif 'Gif demo')
 
 ## Development
 
-Clone this repo. Go to `chrome://extensions` in a tab in Chrome and click `Load unpacked extension`. Open the cloned directory and :tada:. When you make a change to the code, reload the extension from this page (Cmd + R).
+-   Clone this repo.
+-   Open `chrome://extensions` in Chrome and toggle Developer mode in the top right corner. Click the `Load unpacked` button that appears in the top left corner.
+-   Navigate to the where the cloned directory is in your filesystem and select it.
+-   When you make a change to the code, reload the extension from this page by clicking the round reload arrow.
 
-As this doesn't use a HTML file it's a bit trickier to debug than an extension that does: instead of right-clicking on the extension icon and selecting `Inspect`, click the `Inspect Views: background page` option from the `chrome://extensions` page entry. To force it run with DevTools open, type `location.reload(true)` in DevTools console that pops up.
+### Debugging
+
+As the extension doesn't use a HTML file it's a bit trickier to debug than an extension that does: you're not able to simply right-click on the extension icon and click `Inspect`. Instead, click on the `Details` button from the `chrome://extensions` page and find the `Inspect Views` option. Click `background page (inactive)` and a Dev Tools window will appear ready for debugging.
 
 #### Credit
 
