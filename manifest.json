@@ -7,9 +7,9 @@
         "default_title": "Reverse tab order"
     },
     "icons": {
-        "16": "icons/double-arrow.png",
-        "48": "icons/double-arrow.png",
-        "128": "icons/double-arrow.png"
+        "16": "icons/neg-sbat.png",
+        "48": "icons/neg-sbat.png",
+        "128": "icons/neg-sbat-128.png"
     },
     "permissions": ["tabs", "windows"],
     "background": {
